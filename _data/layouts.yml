@@ -1,0 +1,53 @@
+# Keyboard Layout Editor layouts. Each one is a gist on github.com/steveed;
+# `file` is a copy under assets/layouts/ so the site can draw it without
+# calling the GitHub API (run `make layouts` to refresh the copies).
+
+- id: amiga-iso-eu
+  name: Amiga Standard (ISO / EU)
+  gist: 4a565cbdb50d6d845cf8cc439113668d
+  file: amiga-iso-eu.json
+  notes: Full-size ISO set. The base for the A500, A1200 and (with the extras) A600 builds.
+
+- id: amiga-600-extra-keys
+  name: Amiga 600 extra keys
+  gist: cec1138e6000deb5183f61fc0f1bb356
+  file: amiga-600-extra-keys.json
+  notes: The five narrower caps that turn the ISO set into an A600 set — 1.75u Shift, 1.25u Help, 1u Del, 1u Alt and an 8u spacebar.
+
+- id: amiga-600-english
+  name: Amiga 600 (English)
+  gist: 421bd961ad00fe7ba3df1b11560fec55
+  file: amiga-600-english.json
+  notes: Adam Eberbach's A600 layout, copied for reference.
+
+- id: amiga-de
+  name: Amiga full size (German)
+  gist: 03522ff5bed4ae4d426c97fec8e8f605
+  file: amiga-de.json
+
+- id: amiga-fr
+  name: Amiga ISO (French)
+  gist: 99cd4bd30b053f658994172c31db7424
+  file: amiga-fr.json
+
+- id: amiga-uk-extras
+  name: Amiga UK extra keycaps
+  gist: 77defd76c97446f853a2e8cab506f791
+  file: amiga-uk-extras.json
+  notes: The caps that differ for a UK layout.
+
+- id: amiga-us-ansi-extras
+  name: Amiga US ANSI extra keycaps
+  gist: d4e5ffe80b42fd9e5a36d3909af368dd
+  file: amiga-us-ansi-extras.json
+  notes: The caps that differ for a US ANSI layout.
+
+- id: amiga-2000-us-ansi
+  name: Amiga 2000 Cherry MX (US ANSI)
+  gist: 22357f87a4470d78fba2f0ef5ed66dd7
+  file: amiga-2000-us-ansi.json
+
+- id: c128-dcr
+  name: Commodore 128 DCR
+  gist: 60a85a7038d0ed399f65aab88192ea36
+  file: c128-dcr.json

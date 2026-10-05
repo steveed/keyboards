@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Amiga 600 - Extra Keys",
+    "author": "Stephen Durham",
+    "switchMount": "cherry",
+    "switchBrand": "gateron",
+    "switchType": "KS-3-White",
+    "plate": true
+  },
+  [
+    {
+      "c": "#aaaaaa",
+      "w": 1.25
+    },
+    "Help",
+    "Del",
+    "Alt",
+    {
+      "f": 6,
+      "w": 1.75
+    },
+    "⇧",
+    {
+      "w": 2.75
+    },
+    "⇧"
+  ],
+  [
+    {
+      "y": 0.25,
+      "c": "#cccccc",
+      "a": 7,
+      "f": 3,
+      "w": 8
+    },
+    ""
+  ]
+]
