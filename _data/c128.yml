@@ -22,7 +22,7 @@
   summary: >-
     A four-piece 3D-printed case that turns the same plate and PCB into a
     stand-alone keyboard for a 128D whose original keyboard is missing.
-  photos: [c128d-printed-case, c128d-case-steel-plate]
+  photos: [c128d-case-steel-plate, c128d-printed-case]
   links:
     - title: c128d-keyboard-case
       url: https://github.com/steveed/c128d-keyboard-case
