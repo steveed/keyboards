@@ -32,7 +32,9 @@
     - grey-white-a500kb
     - black-grey-a500kb-2
     - classic-closeup
-  amibay: []
+  amibay:
+    - title: "Run 3"
+      url: "https://www.amibay.com/threads/amiga-full-size-keyboard-keycap-sets-cherry-mx-style.2457565/"
 
 - id: amiga-600
   name: Amiga 600
