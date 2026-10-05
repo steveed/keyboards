@@ -1,0 +1,28 @@
+# Which originals from keyboard_pics/ get published, and under what name.
+# `make photos` writes <name>.jpg (1600px) and <name>-sm.jpg (800px) to
+# assets/img/keycaps/, upright and with all EXIF (including GPS) removed.
+# Originals stay out of git; anything not listed here is not published.
+
+IMG_4949.jpeg: black-grey-a500kb
+IMG_4523.jpeg: black-grey-a500kb-2
+IMG_4521.jpeg: black-grey-de-closeup
+IMG_4752.jpeg: black-grey-numpad-closeup
+IMG_4621.jpeg: black-grey-a500-black-case
+IMG_4631.jpeg: black-grey-fr-azerty
+
+IMG_4605.jpeg: classic-a3000-style
+IMG_4726.jpeg: classic-a2000
+IMG_5381.jpeg: classic-a2000-2
+IMG_4753.jpeg: classic-a500-case
+IMG_4524.jpeg: classic-a500kb
+IMG_4628.jpeg: classic-rgb
+IMG_5350.jpeg: classic-closeup
+
+IMG_5383.jpeg: grey-white-bigbox
+IMG_4973.jpeg: grey-white-a1200kb
+IMG_4525.jpeg: grey-white-a500kb
+
+IMG_4762.jpeg: a600-white
+IMG_5132.jpeg: a600-black
+IMG_4769.jpeg: a600-black-de
+IMG_4974.jpeg: a600-de-plate
