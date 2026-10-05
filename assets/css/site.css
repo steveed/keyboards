@@ -64,6 +64,8 @@ dd { margin: 0; }
 .thumbs { display: flex; gap: .4rem; overflow-x: auto; margin: .6rem 0; }
 .thumbs img { height: 72px; width: auto; border-radius: 6px; }
 
+.links-list { margin: .6rem 0 0; padding-left: 1.1rem; font-size: .95rem; }
+
 .kle { background: var(--kle-bg); border-radius: 8px; padding: 10px; min-height: 80px; color: var(--muted); font-size: .9rem; }
 .kle svg { width: 100%; height: auto; display: block; font-family: system-ui, sans-serif; }
 .card .kle { border-radius: 0; display: flex; align-items: center; }

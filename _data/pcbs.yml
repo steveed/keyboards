@@ -28,15 +28,3 @@
   author: Adam Eberbach
   url: https://github.com/aeberbach/A1200KBv2
   summary: Mechanical A1200 keyboard with low-profile switches and a 3D-printed plate.
-
-- id: c128-keyboard
-  name: The C128 Keyboard Project
-  machine: Commodore 128
-  author: jflitton
-  url: https://codeberg.org/jflitton/the-c128-keyboard-project
-  summary: Plate, PCB and printable parts for a mechanical C128 keyboard.
-  related:
-    - name: C128D keyboard case
-      url: https://github.com/steveed/c128d-keyboard-case
-    - name: Open128 / stock C128 adapter
-      url: https://github.com/steveed/c128-mech-keyboard-adapter

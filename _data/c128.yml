@@ -1,0 +1,36 @@
+# Commodore 128 keyboard work. These reuse the original Commodore keycaps,
+# so they live in their own section rather than under keycap sets.
+#   photos: names from scripts/photos.yml (no extension)
+#   links:  {title, url}; leave empty until something is public
+
+- id: c128-mechanical
+  name: C128 mechanical keyboard
+  summary: >-
+    A mechanical replacement keyboard for the flat C128, built on the C128
+    Keyboard Project's PCB and steel plate and reusing the original keycaps.
+  photos: [c128-flat-mechanical, c128-flat-inside]
+  links:
+    - title: The C128 Keyboard Project (jflitton)
+      url: https://github.com/jflitton/the-c128-keyboard-project
+    - title: Open128 / stock C128 adapter
+      url: https://github.com/steveed/c128-mech-keyboard-adapter
+    - title: C128 DCR layout
+      url: "#layout-c128-dcr"
+
+- id: c128d-case
+  name: C128D printable case
+  summary: >-
+    A four-piece 3D-printed case that turns the same plate and PCB into a
+    stand-alone keyboard for a 128D whose original keyboard is missing.
+  photos: [c128d-printed-case, c128d-case-steel-plate]
+  links:
+    - title: c128d-keyboard-case
+      url: https://github.com/steveed/c128d-keyboard-case
+
+- id: c128-aluminium-plate
+  name: Aluminium PCB plate
+  summary: >-
+    A new plate made as a 1.5 mm aluminium-core PCB instead of laser-cut
+    steel, so it can be ordered from an ordinary board fab. Not published yet.
+  photos: [c128-aluminium-plate]
+  links: []

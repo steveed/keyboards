@@ -3,12 +3,13 @@ layout: default
 ---
 {% assign layouts = site.data.layouts %}
 {% assign pcbs = site.data.pcbs %}
+{% assign img = '/assets/img/keycaps/' | relative_url %}
 
 <section class="hero">
   <h1>{{ site.title }}</h1>
   <p>{{ site.tagline }}. Keycap sets I've made for the open-source mechanical
     Amiga 500, 600 and 1200 keyboards and the big-box A2000, A3000 and A4000 — with their layouts, the PCBs they fit,
-    and where they were sold. Plus my Commodore 128 keyboard work.</p>
+    and where they were sold. Plus my Commodore 128 keyboard builds.</p>
 </section>
 
 <section id="keycaps">
@@ -16,7 +17,6 @@ layout: default
   <div class="cards sets">
   {% for set in site.data.keycaps %}
     <article class="card" id="set-{{ set.id }}">
-      {% assign img = '/assets/img/keycaps/' | relative_url %}
       {% if set.photos.size > 0 %}
         <a href="{{ img }}{{ set.photos[0] }}.jpg"><img class="card-img" src="{{ img }}{{ set.photos[0] }}-sm.jpg" alt="{{ set.name }} keycaps" loading="lazy"></a>
       {% else %}
@@ -51,6 +51,35 @@ layout: default
             <dd>{% for a in set.amibay %}<a href="{{ a.url | default: a }}">{{ a.title | default: "Sale thread" }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}</dd>
           {% endif %}
         </dl>
+      </div>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+
+<section id="c128">
+  <h2>Commodore 128</h2>
+  <div class="cards sets">
+  {% for item in site.data.c128 %}
+    <article class="card" id="{{ item.id }}">
+      {% if item.photos.size > 0 %}
+        <a href="{{ img }}{{ item.photos[0] }}.jpg"><img class="card-img" src="{{ img }}{{ item.photos[0] }}-sm.jpg" alt="{{ item.name }}" loading="lazy"></a>
+      {% endif %}
+      <div class="card-body">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.summary }}</p>
+        {% if item.photos.size > 1 %}
+          <div class="thumbs">
+          {% for p in item.photos offset:1 %}
+            <a href="{{ img }}{{ p }}.jpg"><img src="{{ img }}{{ p }}-sm.jpg" alt="" loading="lazy"></a>
+          {% endfor %}
+          </div>
+        {% endif %}
+        {% if item.links.size > 0 %}
+          <ul class="links-list">
+          {% for l in item.links %}<li><a href="{{ l.url }}">{{ l.title }}</a></li>{% endfor %}
+          </ul>
+        {% endif %}
       </div>
     </article>
   {% endfor %}
