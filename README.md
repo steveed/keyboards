@@ -1,6 +1,6 @@
 # Retro Keyboards
 
-Source for https://steveed.github.io/keyboards/ — Amiga keycap sets, their Keyboard Layout
+Source for https://keyboards.stephendurham.com/ — Amiga keycap sets, their Keyboard Layout
 Editor layouts, and the open-source keyboard PCBs they fit. Built by GitHub Pages (Jekyll);
 there is no build step to run before pushing.
 
@@ -28,7 +28,7 @@ amibay:
 
 All run in Docker:
 
-- `make serve` — preview at http://localhost:4000/keyboards/
+- `make serve` — preview at http://localhost:4000/
 - `make build` — build into `_site/`
 - `make layouts` — refresh `assets/layouts/` from the gists after editing them in KLE
 - `make qr` — write `assets/qr.svg` (for print) and `assets/qr.png` for the site URL;

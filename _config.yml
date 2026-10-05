@@ -2,10 +2,10 @@ title: Retro Keyboards
 tagline: Amiga keycaps, layouts and mechanical keyboard PCBs
 author: Stephen Durham
 
-# GitHub Pages project site: https://steveed.github.io/keyboards/
-# If you move this to a user site or a custom domain, set baseurl to "".
-url: https://steveed.github.io
-baseurl: /keyboards
+# Served from the custom domain in CNAME (DNS: keyboards CNAME steveed.github.io,
+# hosted at Rackspace Cloud DNS). The QR code on the business cards points here.
+url: https://keyboards.stephendurham.com
+baseurl: ""
 
 # Contact links shown in the header and footer. Leave blank to hide.
 contact:

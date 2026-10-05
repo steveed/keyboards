@@ -1,8 +1,8 @@
-SITE_URL ?= https://steveed.github.io/keyboards/
+SITE_URL ?= https://keyboards.stephendurham.com/
 
 .PHONY: serve build layouts photos qr
 
-# Preview at http://localhost:4000/keyboards/
+# Preview at http://localhost:4000/
 serve:
 	docker compose run --rm --service-ports jekyll
 
