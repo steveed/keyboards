@@ -1,0 +1,28 @@
+title: Retro Keyboards
+tagline: Amiga keycaps, layouts and mechanical keyboard PCBs
+author: Stephen Durham
+
+# GitHub Pages project site: https://steveed.github.io/keyboards/
+# If you move this to a user site or a custom domain, set baseurl to "".
+url: https://steveed.github.io
+baseurl: /keyboards
+
+# Contact links shown in the header and footer. Leave blank to hide.
+contact:
+  amibay: https://www.amibay.com/members/steveed.32005/
+  # The address is stored in two halves and joined by JavaScript in the
+  # browser, so it never appears whole in the repo or the page source.
+  email_user: keyboards
+  email_domain: stephendurham.com
+  github: https://github.com/steveed
+
+markdown: kramdown
+exclude:
+  - README.md
+  - Makefile
+  - docker-compose.yml
+  - Gemfile
+  - Gemfile.lock
+  - scripts/
+  - keyboard_pics/
+  - vendor/

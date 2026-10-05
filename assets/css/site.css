@@ -1,0 +1,80 @@
+/* Colours lean on the Amiga: warm keycap beige, Workbench blue and orange. */
+:root {
+  --bg: #f4f1e8;
+  --surface: #fffdf7;
+  --text: #22262e;
+  --muted: #5d6370;
+  --line: #ddd6c4;
+  --accent: #0055aa;
+  --accent-2: #ff8800;
+  --kle-bg: #ebe6d6;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15181e;
+    --surface: #1e222a;
+    --text: #e8e6df;
+    --muted: #a3a8b3;
+    --line: #333946;
+    --accent: #6fa8ff;
+    --accent-2: #ffa040;
+    --kle-bg: #2a2f39;
+  }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 17px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+a { color: var(--accent); }
+img { max-width: 100%; display: block; }
+h1, h2, h3 { line-height: 1.2; }
+h2 { margin-top: 2.5rem; padding-bottom: .3rem; border-bottom: 3px solid var(--accent-2); display: inline-block; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+.top { background: var(--accent); color: #fff; position: sticky; top: 0; z-index: 10; }
+.top .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem 1rem; padding-block: .6rem; }
+.top a { color: #fff; text-decoration: none; }
+.brand { font-weight: 700; letter-spacing: .02em; }
+.top nav { display: flex; gap: 1rem; font-size: .95rem; }
+.top nav a:hover { text-decoration: underline; }
+@media (prefers-color-scheme: dark) { .top { background: #0b2f5c; } }
+
+.hero h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); margin: 1.5rem 0 .5rem; }
+.hero p { max-width: 62ch; color: var(--muted); margin: 0; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; }
+.cards.sets { grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.card-img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; }
+.card-body { padding: .9rem 1.1rem 1.1rem; }
+.card h3 { margin: 0 0 .4rem; }
+.card p { margin: .4rem 0; }
+.status { display: inline-block; font-size: .8rem; font-weight: 600; background: var(--accent-2); color: #000; border-radius: 99px; padding: .1rem .6rem; }
+.machine { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 !important; }
+.by, .related { font-size: .9rem; color: var(--muted); }
+dl { display: grid; grid-template-columns: auto 1fr; gap: .2rem .8rem; margin: .8rem 0 0; font-size: .92rem; }
+dt { color: var(--muted); }
+dd { margin: 0; }
+.thumbs { display: flex; gap: .4rem; overflow-x: auto; margin: .6rem 0; }
+.thumbs img { height: 72px; width: auto; border-radius: 6px; }
+
+.kle { background: var(--kle-bg); border-radius: 8px; padding: 10px; min-height: 80px; color: var(--muted); font-size: .9rem; }
+.kle svg { width: 100%; height: auto; display: block; font-family: system-ui, sans-serif; }
+.card .kle { border-radius: 0; display: flex; align-items: center; }
+
+.layout { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 1rem 1.1rem; margin: 1rem 0; }
+.layout h3 { margin: 0 0 .3rem; }
+.layout > p:first-of-type { color: var(--muted); margin-top: 0; }
+.links { display: flex; gap: 1rem; align-items: center; margin: .8rem 0 0; }
+.button { background: var(--accent); color: #fff; text-decoration: none; padding: .45rem .9rem; border-radius: 6px; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .button { color: #0b1a30; } }
+
+footer { margin-top: 3rem; padding-bottom: 3rem; }
+.contact { list-style: none; padding: 0; display: flex; gap: 1.2rem; font-size: 1.1rem; }
+.fine { font-size: .85rem; color: var(--muted); max-width: 62ch; }

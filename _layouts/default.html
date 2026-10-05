@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ site.tagline }}">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.tagline }}">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <a class="brand" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      <nav>
+        <a href="#keycaps">Keycaps</a>
+        <a href="#layouts">Layouts</a>
+        <a href="#pcbs">PCBs</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    {{ content }}
+  </main>
+
+  <footer class="wrap" id="contact">
+    <h2>Contact</h2>
+    <ul class="contact">
+      {% if site.contact.amibay != "" %}<li><a href="{{ site.contact.amibay }}">AmiBay</a></li>{% endif %}
+      {% if site.contact.github != "" %}<li><a href="{{ site.contact.github }}">GitHub</a></li>{% endif %}
+      {% if site.contact.email_user %}<li><a class="email" href="#contact" data-u="{{ site.contact.email_user }}" data-d="{{ site.contact.email_domain }}">Email</a></li>{% endif %}
+    </ul>
+    <p class="fine">PCB designs are the work of their authors and are linked here, not hosted.
+      Layouts are drawn from <a href="http://www.keyboard-layout-editor.com/">Keyboard Layout Editor</a> files.</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll("a.email").forEach(function (a) {
+      var addr = a.dataset.u + "\u0040" + a.dataset.d;
+      a.href = "mailto:" + addr;
+      a.textContent = addr;
+    });
+  </script>
+  <script src="{{ '/assets/js/kle.js' | relative_url }}" defer></script>
+</body>
+</html>

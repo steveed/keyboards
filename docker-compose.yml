@@ -1,0 +1,22 @@
+services:
+  jekyll:
+    image: ruby:3.3
+    working_dir: /site
+    volumes:
+      - .:/site
+      - gems:/usr/local/bundle
+    ports:
+      - "4000:4000"
+    command: sh -c "bundle install --quiet && bundle exec jekyll serve --host 0.0.0.0 --livereload"
+
+  tools:
+    image: python:3.12-slim
+    working_dir: /site
+    volumes:
+      - .:/site
+      - pip:/root/.cache/pip
+    entrypoint: ["sh", "-c", "pip install --quiet --root-user-action=ignore segno pyyaml pillow && exec \"$$@\"", "--"]
+
+volumes:
+  gems:
+  pip:
