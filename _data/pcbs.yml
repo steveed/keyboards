@@ -1,0 +1,42 @@
+# Open-source keyboard PCBs these keycaps are made for. The designs belong
+# to their authors; this site only links to them.
+
+- id: amiga-mech
+  name: Amiga Mechanical Keyboard
+  machine: Amiga 2000 / 3000 / 4000
+  author: Jason Beer
+  url: https://github.com/jasonsbeer/Amiga-Mechanical-Keyboard
+  summary: Cherry MX replacement keyboard for the big-box Amigas.
+
+- id: a500kb
+  name: A500KB
+  machine: Amiga 500
+  author: Henryk Richter
+  url: https://github.com/HenrykRichter/A500KB
+  summary: Custom mechanical keyboard for the Amiga 500.
+
+- id: a600kbv2
+  name: A600KBv2
+  machine: Amiga 600
+  author: Adam Eberbach
+  url: https://github.com/aeberbach/A600KBv2
+  summary: Low-profile mechanical keyboard for the Amiga 600.
+
+- id: a1200kbv2
+  name: A1200KBv2
+  machine: Amiga 1200
+  author: Adam Eberbach
+  url: https://github.com/aeberbach/A1200KBv2
+  summary: Mechanical A1200 keyboard with low-profile switches and a 3D-printed plate.
+
+- id: c128-keyboard
+  name: The C128 Keyboard Project
+  machine: Commodore 128
+  author: jflitton
+  url: https://codeberg.org/jflitton/the-c128-keyboard-project
+  summary: Plate, PCB and printable parts for a mechanical C128 keyboard.
+  related:
+    - name: C128D keyboard case
+      url: https://github.com/steveed/c128d-keyboard-case
+    - name: Open128 / stock C128 adapter
+      url: https://github.com/steveed/c128-mech-keyboard-adapter

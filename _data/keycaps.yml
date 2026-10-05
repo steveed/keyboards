@@ -1,0 +1,49 @@
+# Keycap sets I have made and sold. Empty fields are hidden on the site.
+#
+#   photos:  names from scripts/photos.yml (no extension); the first is the card image
+#   layouts: ids from _data/layouts.yml
+#   fits:    ids from _data/pcbs.yml
+#   amibay:  sale threads, as {title, url}
+
+- id: a500-a1200
+  name: Amiga 500 / 1200
+  summary: >-
+    Full-size Amiga set for the A500KB and A1200KBv2 boards. The A500 version
+    also fits the big-box A2000, A3000 and A4000 keyboards. Shown here in
+    black & grey, classic beige and grey & white.
+  details: "ABS Double-Shot. Signature Plastics DCS Profile"
+  status: "Run 4 in progress"
+  layouts: [amiga-iso-eu, amiga-de, amiga-fr, amiga-uk-extras, amiga-us-ansi-extras, amiga-2000-us-ansi]
+  fits: [a500kb, a1200kbv2, amiga-mech]
+  photos:
+    - black-grey-a500kb
+    - classic-a2000
+    - grey-white-bigbox
+    - black-grey-a500-black-case
+    - classic-a3000-style
+    - classic-a500-case
+    - grey-white-a1200kb
+    - black-grey-numpad-closeup
+    - black-grey-de-closeup
+    - black-grey-fr-azerty
+    - classic-rgb
+    - classic-a2000-2
+    - classic-a500kb
+    - grey-white-a500kb
+    - black-grey-a500kb-2
+    - classic-closeup
+  amibay: []
+
+- id: amiga-600
+  name: Amiga 600
+  summary: The ISO set plus the five A600-specific caps, for the A600KBv2 board.
+  details: "ABS Double-Shot. Signature Plastics DCS Profile"
+  status: "Not currently available."
+  layouts: [amiga-600-english, amiga-600-extra-keys]
+  fits: [a600kbv2]
+  photos:
+    - a600-white
+    - a600-black
+    - a600-black-de
+    - a600-de-plate
+  amibay: []
