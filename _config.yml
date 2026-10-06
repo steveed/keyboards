@@ -6,6 +6,8 @@ author: Stephen Durham
 # hosted at Rackspace Cloud DNS). The QR code on the business cards points here.
 url: https://keyboards.stephendurham.com
 baseurl: ""
+# Shown under the QR code on the kiosk page; must match what the QR encodes.
+display_url: keyboards.stephendurham.com
 
 # Contact links shown in the header and footer. Leave blank to hide.
 contact:
@@ -25,4 +27,5 @@ exclude:
   - Gemfile.lock
   - scripts/
   - keyboard_pics/
+  - pi/
   - vendor/

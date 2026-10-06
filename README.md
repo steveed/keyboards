@@ -37,3 +37,9 @@ All run in Docker:
 ## Publishing
 
 Push to `main`, then in the repo's Settings → Pages choose "Deploy from a branch", `main`, `/ (root)`.
+
+## Meetup kiosk
+
+`/kiosk/` is a full-screen slideshow beside the QR code, for a 1920x1080 display
+on the table. `pi/` has the scripts that run it on a Raspberry Pi with no network;
+see [pi/README.md](pi/README.md).

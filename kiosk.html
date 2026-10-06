@@ -1,0 +1,115 @@
+---
+layout: null
+permalink: /kiosk/
+sitemap: false
+---
+{% comment %}
+  Table display for meetups: a photo slideshow beside the business-card QR
+  code, sized for a 1920x1080 screen. Every photo is a real <img> so a
+  `wget --page-requisites` copy works offline on the Pi (see pi/).
+{% endcomment %}
+{% assign img = '/assets/img/keycaps/' | relative_url %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>{{ site.title }} · kiosk</title>
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <style>
+    :root { --bg: #101318; --panel: #181c23; --text: #ece9e0; --muted: #9aa1ad; --accent: #ff8800; --blue: #0055aa; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: var(--bg); color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif; cursor: none; }
+    .kiosk { display: grid; grid-template-columns: 1fr 38vw; height: 100vh; }
+
+    .show { position: relative; overflow: hidden; background: #000; }
+    .slide { position: absolute; inset: 0; margin: 0; opacity: 0; transition: opacity 1.2s ease; }
+    .slide.active { opacity: 1; }
+    /* The whole photo, letterboxed over a blurred copy of itself. */
+    .slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .slide img.fill { object-fit: cover; filter: blur(40px) brightness(.45); transform: scale(1.15); }
+    .slide figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 4vh 3vw 3.5vh;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .85)); }
+    .slide h2 { margin: 0; font-size: 4.4vh; }
+    .slide p { margin: .6vh 0 0; font-size: 2.4vh; color: #d6d3cb; max-width: 60ch; }
+    .tag { display: inline-block; margin-top: 1.2vh; background: var(--accent); color: #000; font-weight: 700;
+      font-size: 2vh; padding: .3vh 1vw; border-radius: 99px; }
+
+    .side { background: var(--panel); border-left: .6vh solid var(--blue); display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; padding: 4vh 3vw; gap: 2.4vh; }
+    .side h1 { margin: 0; font-size: 5.6vh; letter-spacing: .02em; }
+    .side .tagline { margin: 0; font-size: 2.5vh; color: var(--muted); }
+    .qr { background: #fff; padding: 2vh; border-radius: 2vh; width: 46vh; height: 46vh; }
+    .qr img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+    .scan { margin: 0; font-size: 3vh; font-weight: 700; }
+    .url { margin: 0; font-size: 3.2vh; color: var(--accent); font-weight: 700; letter-spacing: .01em; }
+    .contact { margin: 0; font-size: 2.2vh; color: var(--muted); line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <main class="kiosk">
+    <section class="show">
+      {% for set in site.data.keycaps %}{% for p in set.photos %}
+      <figure class="slide">
+        <img class="fill" src="{{ img }}{{ p }}.jpg" alt="">
+        <img src="{{ img }}{{ p }}.jpg" alt="">
+        <figcaption>
+          <h2>{{ set.name }} keycaps</h2>
+          <p>{{ set.details }}</p>
+          {% if set.status != "" %}<span class="tag">{{ set.status }}</span>{% endif %}
+        </figcaption>
+      </figure>
+      {% endfor %}{% endfor %}
+      {% for item in site.data.c128 %}{% for p in item.photos %}
+      <figure class="slide">
+        <img class="fill" src="{{ img }}{{ p }}.jpg" alt="">
+        <img src="{{ img }}{{ p }}.jpg" alt="">
+        <figcaption>
+          <h2>{{ item.name }}</h2>
+          <p>{{ item.summary }}</p>
+        </figcaption>
+      </figure>
+      {% endfor %}{% endfor %}
+    </section>
+
+    <aside class="side">
+      <h1>{{ site.title }}</h1>
+      <p class="tagline">{{ site.tagline }}</p>
+      <div class="qr"><img src="{{ '/assets/qr.svg' | relative_url }}" alt="QR code for {{ site.display_url }}"></div>
+      <p class="scan">Scan for photos, layouts &amp; links</p>
+      <p class="url">{{ site.display_url }}</p>
+      <p class="contact">
+        {% if site.contact.amibay != "" %}AmiBay: {{ site.contact.amibay | split: "/members/" | last | split: "." | first }}<br>{% endif %}
+        {% if site.contact.email_user %}<span class="email" data-u="{{ site.contact.email_user }}" data-d="{{ site.contact.email_domain }}"></span>{% endif %}
+      </p>
+    </aside>
+  </main>
+
+  <script>
+    document.querySelectorAll(".email").forEach(function (el) {
+      el.textContent = el.dataset.u + "@" + el.dataset.d;
+    });
+
+    // Shuffle so the same photo isn't always first, then crossfade on a timer.
+    var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+    for (var i = slides.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = slides[i]; slides[i] = slides[j]; slides[j] = t;
+    }
+    // Later siblings paint on top, so put the DOM in shuffled order too.
+    slides.forEach(function (s) { s.parentNode.appendChild(s); });
+    var current = 0, SECONDS = 7;
+    if (slides.length) slides[0].classList.add("active");
+    setInterval(function () {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, SECONDS * 1000);
+
+    // Pick up a refreshed copy (pi/update.sh) without restarting the browser.
+    setTimeout(function () { location.reload(); }, 6 * 60 * 60 * 1000);
+  </script>
+</body>
+</html>

@@ -39,6 +39,6 @@
 - id: eks-1000
   name: A1000 Keyboard
   machine: Amiga 1000
-  author: "Phantom Interrogative (original author)"
-  url: https://github.com/steveed/EKS-1000-Amiga-Keyboard
-  summary: A started and never completed project. I forked this with the intention of finishing it.
+  author: Stephen Durham
+  url: https://github.com/steveed/amiga-1000-keyboard-project
+  summary: A new project to create an open A1000 keyboard PCB.
