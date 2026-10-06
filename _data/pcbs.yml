@@ -28,3 +28,17 @@
   author: Adam Eberbach
   url: https://github.com/aeberbach/A1200KBv2
   summary: Mechanical A1200 keyboard with low-profile switches and a 3D-printed plate.
+
+- id: a2000-cherry
+  name: A2000 Cherry
+  machine: Amiga 2000
+  author: Graham Shaw
+  url: https://github.com/grahamshaw1972/a2000Keyboard
+  summary: Recreation of the original Amiga 2000 Cherry MX keyboard.
+
+- id: eks-1000
+  name: A1000 Keyboard
+  machine: Amiga 1000
+  author: Original Author: Phantom Interrogative
+  url: https://github.com/steveed/EKS-1000-Amiga-Keyboard
+  summary: A started and never completed project. I forked this with the intention of finishing it.

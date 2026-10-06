@@ -51,3 +51,8 @@
   name: Commodore 128 DCR
   gist: 60a85a7038d0ed399f65aab88192ea36
   file: c128-dcr.json
+
+- id: amiga-1000-us-ansi
+  name: Amiga 1000 (US ANSI)
+  gist: 7f62873ae2a7dd1a4330500d8eaa6746
+  file: amiga-1000-us-ansi.json
