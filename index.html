@@ -18,7 +18,7 @@ layout: default
   {% for set in site.data.keycaps %}
     <article class="card" id="set-{{ set.id }}">
       {% if set.photos.size > 0 %}
-        <a href="{{ img }}{{ set.photos[0] }}.jpg"><img class="card-img" src="{{ img }}{{ set.photos[0] }}-sm.jpg" alt="{{ set.name }} keycaps" loading="lazy"></a>
+        <a href="{{ img }}{{ set.photos[0] }}.jpg" data-gallery="{{ set.id }}" data-caption="{{ set.name }}"><img class="card-img" src="{{ img }}{{ set.photos[0] }}-sm.jpg" alt="{{ set.name }} keycaps" loading="lazy"></a>
       {% else %}
         {% assign first = layouts | where: "id", set.layouts[0] | first %}
         {% if first %}<div class="kle card-img" data-src="{{ '/assets/layouts/' | append: first.file | relative_url }}" role="img" aria-label="{{ first.name }} layout"></div>{% endif %}
@@ -32,7 +32,7 @@ layout: default
         {% if set.photos.size > 1 %}
           <div class="thumbs">
           {% for p in set.photos offset:1 %}
-            <a href="{{ img }}{{ p }}.jpg"><img src="{{ img }}{{ p }}-sm.jpg" alt="" loading="lazy"></a>
+            <a href="{{ img }}{{ p }}.jpg" data-gallery="{{ set.id }}" data-caption="{{ set.name }}"><img src="{{ img }}{{ p }}-sm.jpg" alt="" loading="lazy"></a>
           {% endfor %}
           </div>
         {% endif %}
@@ -63,7 +63,7 @@ layout: default
   {% for item in site.data.c128 %}
     <article class="card" id="{{ item.id }}">
       {% if item.photos.size > 0 %}
-        <a href="{{ img }}{{ item.photos[0] }}.jpg"><img class="card-img" src="{{ img }}{{ item.photos[0] }}-sm.jpg" alt="{{ item.name }}" loading="lazy"></a>
+        <a href="{{ img }}{{ item.photos[0] }}.jpg" data-gallery="{{ item.id }}" data-caption="{{ item.name }}"><img class="card-img" src="{{ img }}{{ item.photos[0] }}-sm.jpg" alt="{{ item.name }}" loading="lazy"></a>
       {% endif %}
       <div class="card-body">
         <h3>{{ item.name }}</h3>
@@ -71,7 +71,7 @@ layout: default
         {% if item.photos.size > 1 %}
           <div class="thumbs">
           {% for p in item.photos offset:1 %}
-            <a href="{{ img }}{{ p }}.jpg"><img src="{{ img }}{{ p }}-sm.jpg" alt="" loading="lazy"></a>
+            <a href="{{ img }}{{ p }}.jpg" data-gallery="{{ item.id }}" data-caption="{{ item.name }}"><img src="{{ img }}{{ p }}-sm.jpg" alt="" loading="lazy"></a>
           {% endfor %}
           </div>
         {% endif %}
