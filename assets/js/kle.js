@@ -2,6 +2,9 @@
 // Handles what these layouts use: key size and position (x, y, w, h and the
 // second rectangle of ISO Enter: x2, y2, w2, h2), colours (c, t), legend
 // alignment (a) and font size (f, f2, fa). Rotation is ignored.
+// The Amiga keys' logos, which KLE draws from each layout's custom styles
+// (legends <i class='amiga amiga-closed'></i> and amiga-open), are drawn here
+// from the same shapes.
 
 (function () {
   // KLE stores up to 12 legends per key in an order that depends on the
@@ -20,6 +23,16 @@
   var NS = "http://www.w3.org/2000/svg";
   var GAP = 0.05;   // space between caps, in key units
   var PAD = 0.12;   // legend inset from the cap edge
+
+  // The Amiga A, in a 100-unit box: main stroke, hairline, crossbar, two feet
+  var AMIGA_A = [
+    "M63 11 L73 2 L86 87 L64 87 Z",
+    "M70 5 L74 11 L28 87 L22 87 Z",
+    "M38 59 L66 59 L66 64 L34 64 Z",
+    "M8 93 L40 93 L39 89 Q32 88 29 84 L22 84 Q19 88 9 89 Z",
+    "M55 93 L94 93 L93 89 Q86 88 84 83 L66 83 Q66 88 56 89 Z"
+  ];
+  var AMIGA_SIZE = 0.55;   // key units: KLE's 30 px glyph on its 54 px key
 
   function parse(data) {
     var keys = [], y = 0;
@@ -72,6 +85,15 @@
     return "rgb(" + r + "," + g + "," + b + ")";
   }
 
+  // A closed (solid) or open (outline) Amiga A centred on (cx, cy).  The open
+  // one is the outline stroked, then the same shapes filled in the cap colour
+  // over the inner half of the stroke.
+  function amigaA(g, cx, cy, open, cap) {
+    var a = el("g", { transform: "translate(" + (cx - AMIGA_SIZE / 2) + " " + (cy - AMIGA_SIZE / 2) + ") scale(" + AMIGA_SIZE / 100 + ")" }, g);
+    if (open) AMIGA_A.forEach(function (d) { el("path", { d: d, fill: "none", stroke: "#111", "stroke-width": 7, "stroke-linejoin": "round" }, a); });
+    AMIGA_A.forEach(function (d) { el("path", { d: d, fill: open ? cap : "#111" }, a); });
+  }
+
   function draw(container, keys) {
     var maxX = 0, maxY = 0;
     keys.forEach(function (k) {
@@ -99,6 +121,11 @@
       var colours = k.t.split("\n");
       k.labels.forEach(function (text, i) {
         if (!text || map[i] == null || map[i] < 0) return;
+        var logo = /amiga-(closed|open)/.exec(text);
+        if (logo) {
+          amigaA(g, k.x + k.w / 2, k.y + (k.h - 0.1) / 2, logo[1] === "open", k.c);
+          return;
+        }
         var slot = map[i];
         var size = (k.fa && k.fa[i]) || (i > 0 && k.f2) || k.f;
         var fs = (6 + 2 * size) / 54;
