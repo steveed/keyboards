@@ -223,24 +223,24 @@
     },
     "Alt",
     {
+      "a": 7,
       "w": 1.25
     },
-    "Alt",
+    "<i class='amiga amiga-closed'></i>",
     {
       "x": 0.75,
       "c": "#cccccc",
-      "a": 7,
       "w": 9
     },
     "",
     {
       "x": 0.75,
       "c": "#aaaaaa",
-      "a": 4,
       "w": 1.25
     },
-    "Alt",
+    "<i class='amiga amiga-open'></i>",
     {
+      "a": 4,
       "w": 1.25
     },
     "Alt",
