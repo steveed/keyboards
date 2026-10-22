@@ -1,0 +1,16 @@
+# Amiga 1000 keyboard work.
+#   photos: names from scripts/photos.yml (no extension); the first is the card image
+#   links:  {title, url}; leave empty until something is public
+
+- id: a1000-v2
+  name: A1000 keyboard v2 (USB / Amiga)
+  summary: >-
+    A complete replacement keyboard for the Amiga 1000 — new case, PCB, plate
+    and everything else — that works over USB as well as on the Amiga. This is
+    the first prototype, fitted with some 3D-printed keycaps.
+  photos: [a1000-v2-prototype, a1000-v2-pcb, a1000-v2-plate]
+  links:
+    - title: A1000 keyboard project
+      url: "#pcb-eks-1000"
+    - title: Amiga 1000 (US ANSI) layout
+      url: "#layout-amiga-1000-us-ansi"

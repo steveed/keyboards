@@ -62,7 +62,8 @@ sitemap: false
         </figcaption>
       </figure>
       {% endfor %}{% endfor %}
-      {% for item in site.data.c128 %}{% for p in item.photos %}
+      {% assign builds = site.data.a1000 | concat: site.data.c128 %}
+      {% for item in builds %}{% for p in item.photos %}
       <figure class="slide">
         <img class="fill" src="{{ img }}{{ p }}.jpg" alt="">
         <img src="{{ img }}{{ p }}.jpg" alt="">

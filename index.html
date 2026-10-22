@@ -9,7 +9,7 @@ layout: default
   <h1>{{ site.title }}</h1>
   <p>{{ site.tagline }}. Keycap sets I've made for the open-source mechanical
     Amiga 500, 600 and 1200 keyboards and the big-box A2000, A3000 and A4000 — with their layouts, the PCBs they fit,
-    and where they were sold. Plus my Commodore 128 keyboard builds.</p>
+    and where they were sold. Plus my Amiga 1000 and Commodore 128 keyboard builds.</p>
 </section>
 
 <section id="keycaps">
@@ -54,6 +54,13 @@ layout: default
       </div>
     </article>
   {% endfor %}
+  </div>
+</section>
+
+<section id="a1000">
+  <h2>Amiga 1000</h2>
+  <div class="cards sets">
+  {% include build-cards.html items=site.data.a1000 %}
   </div>
 </section>
 
