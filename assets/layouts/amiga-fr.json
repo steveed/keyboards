@@ -255,22 +255,22 @@
     },
     "Alt",
     {
-      "a": 7,
       "w": 1.25
     },
     "<i class='amiga amiga-closed'></i>",
     {
       "c": "#cccccc",
+      "a": 7,
       "w": 9
     },
     "",
     {
       "c": "#aaaaaa",
+      "a": 4,
       "w": 1.25
     },
     "<i class='amiga amiga-open'></i>",
     {
-      "a": 4,
       "w": 1.25
     },
     "Alt",
