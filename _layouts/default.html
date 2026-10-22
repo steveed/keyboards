@@ -46,6 +46,12 @@
       a.href = "mailto:" + addr;
       a.textContent = addr;
     });
+    // Links off the site open in a new tab, so the page stays put
+    document.querySelectorAll("a[href^='http']").forEach(function (a) {
+      if (a.host === location.host) return;
+      a.target = "_blank";
+      a.rel = "noopener";
+    });
   </script>
   <script src="{{ '/assets/js/kle.js' | relative_url }}" defer></script>
   <script src="{{ '/assets/js/lightbox.js' | relative_url }}" defer></script>
