@@ -32,7 +32,7 @@
     "M8 93 L40 93 L39 89 Q32 88 29 84 L22 84 Q19 88 9 89 Z",
     "M55 93 L94 93 L93 89 Q86 88 84 83 L66 83 Q66 88 56 89 Z"
   ];
-  var AMIGA_SIZE = 0.55;   // key units: KLE's 30 px glyph on its 54 px key
+  var AMIGA_SIZE = 18 / 54;   // key units: KLE's 18 px glyph on its 54 px key, a letter legend's size
 
   function parse(data) {
     var keys = [], y = 0;
@@ -85,11 +85,11 @@
     return "rgb(" + r + "," + g + "," + b + ")";
   }
 
-  // A closed (solid) or open (outline) Amiga A centred on (cx, cy).  The open
-  // one is the outline stroked, then the same shapes filled in the cap colour
-  // over the inner half of the stroke.
-  function amigaA(g, cx, cy, open, cap) {
-    var a = el("g", { transform: "translate(" + (cx - AMIGA_SIZE / 2) + " " + (cy - AMIGA_SIZE / 2) + ") scale(" + AMIGA_SIZE / 100 + ")" }, g);
+  // A closed (solid) or open (outline) Amiga A with its top left at (x, y).
+  // The open one is the outline stroked, then the same shapes filled in the
+  // cap colour over the inner half of the stroke.
+  function amigaA(g, x, y, open, cap) {
+    var a = el("g", { transform: "translate(" + x + " " + y + ") scale(" + AMIGA_SIZE / 100 + ")" }, g);
     if (open) AMIGA_A.forEach(function (d) { el("path", { d: d, fill: "none", stroke: "#111", "stroke-width": 7, "stroke-linejoin": "round" }, a); });
     AMIGA_A.forEach(function (d) { el("path", { d: d, fill: open ? cap : "#111" }, a); });
   }
@@ -121,11 +121,6 @@
       var colours = k.t.split("\n");
       k.labels.forEach(function (text, i) {
         if (!text || map[i] == null || map[i] < 0) return;
-        var logo = /amiga-(closed|open)/.exec(text);
-        if (logo) {
-          amigaA(g, k.x + k.w / 2, k.y + (k.h - 0.1) / 2, logo[1] === "open", k.c);
-          return;
-        }
         var slot = map[i];
         var size = (k.fa && k.fa[i]) || (i > 0 && k.f2) || k.f;
         var fs = (6 + 2 * size) / 54;
@@ -138,6 +133,14 @@
         var top = k.y + GAP + PAD, bottom = k.y + k.h - GAP - 0.26;
         var ty = [top + fs * 0.8, (top + bottom) / 2 + fs * 0.35, bottom, k.y + k.h - GAP - 0.04][row];
         if (front) fs *= 0.75;
+        // An Amiga logo sits in its legend's slot, as a text legend would
+        var logo = /amiga-(closed|open)/.exec(text);
+        if (logo) {
+          var lx = [left, (left + right - AMIGA_SIZE) / 2, right - AMIGA_SIZE][col];
+          var ly = [top, (top + bottom - AMIGA_SIZE) / 2, bottom - AMIGA_SIZE, k.y + k.h - GAP - 0.04 - AMIGA_SIZE][row];
+          amigaA(g, lx, ly, logo[1] === "open", k.c);
+          return;
+        }
         var t = el("text", {
           x: tx, y: ty, "font-size": fs, "text-anchor": anchor,
           fill: colours[i] || colours[0] || "#000"
