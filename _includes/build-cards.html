@@ -1,0 +1,25 @@
+{% comment %}Photo cards for a build section. Pass items= a _data list of
+{id, name, summary, photos, links}; expects `img` from the page.{% endcomment %}
+  {% for item in include.items %}
+    <article class="card" id="{{ item.id }}">
+      {% if item.photos.size > 0 %}
+        <a href="{{ img }}{{ item.photos[0] }}.jpg" data-gallery="{{ item.id }}" data-caption="{{ item.name }}"><img class="card-img" src="{{ img }}{{ item.photos[0] }}-sm.jpg" alt="{{ item.name }}" loading="lazy"></a>
+      {% endif %}
+      <div class="card-body">
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.summary }}</p>
+        {% if item.photos.size > 1 %}
+          <div class="thumbs">
+          {% for p in item.photos offset:1 %}
+            <a href="{{ img }}{{ p }}.jpg" data-gallery="{{ item.id }}" data-caption="{{ item.name }}"><img src="{{ img }}{{ p }}-sm.jpg" alt="" loading="lazy"></a>
+          {% endfor %}
+          </div>
+        {% endif %}
+        {% if item.links.size > 0 %}
+          <ul class="links-list">
+          {% for l in item.links %}<li><a href="{{ l.url }}">{{ l.title }}</a></li>{% endfor %}
+          </ul>
+        {% endif %}
+      </div>
+    </article>
+  {% endfor %}
