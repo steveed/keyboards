@@ -44,7 +44,9 @@
       row.forEach(function (item) {
         if (typeof item === "string") {
           k.x += x; k.y += y;
-          if (!k.w2) { k.w2 = k.w; k.h2 = k.h; }
+          // As in KLE, a second rectangle takes any size it doesn't give from the first
+          if (!k.w2) k.w2 = k.w;
+          if (!k.h2) k.h2 = k.h;
           k.c = s.c; k.t = s.t; k.a = s.a; k.f = s.f; k.f2 = s.f2; k.fa = s.fa;
           k.labels = item.split("\n");
           keys.push(k);
